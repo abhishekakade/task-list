@@ -142,12 +142,15 @@ function removeTaskFromLocalStorage(taskItem) {
 
 // Clear tasks 
 function clearTasks() {
-  while(taskList.firstChild) {
-    taskList.removeChild(taskList.firstChild);
-  }
 
-  // Clear tasks from Local Storage 
-  clearTasksFromLocalStorage();
+  if(confirm('Are you sure you want to delete ALL the tasks?')) {
+    while(taskList.firstChild) {
+      taskList.removeChild(taskList.firstChild);
+    }
+    
+    // Clear tasks from Local Storage 
+    clearTasksFromLocalStorage();
+  }
 }
 
 // Clear tasks from Local Storage 
